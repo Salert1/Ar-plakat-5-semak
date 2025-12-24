@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>WebAR Плакат</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    #video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1; /* Важно: видео поверх всего */
+      opacity: 0.5; /* Сделай полупрозрачным для отладки */
+    }
+    #debug {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: red;
+      font-size: 20px;
+      z-index: 10;
+    }
+  </style>
+  <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.1/build/three.module.js",
+                "GLTFLoader": "https://unpkg.com/three@0.160.1/examples/jsm/loaders/GLTFLoader.js"
+            }
+        }
+    </script>
+</head>
+<body>
+  <video id="video" autoplay playsinline muted></video>
+  <div class="hint">Коснитесь экрана, чтобы перейти на сайт</div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
